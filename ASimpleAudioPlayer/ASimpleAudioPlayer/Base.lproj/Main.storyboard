@@ -1,28 +1,159 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zGl-Tz-6zH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Song ListVC-->
+        <scene sceneID="th3-0J-3Ik">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="EGM-Gt-or5" customClass="SongListVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="D0z-P4-e7L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" id="0Sg-GU-BWH">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Sg-GU-BWH" id="3zC-mK-sgo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="UG4-Az-b99" kind="show" id="YQc-bl-qhF"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EGM-Gt-or5" id="Dw0-I8-X9a"/>
+                            <outlet property="delegate" destination="EGM-Gt-or5" id="Aam-4V-fQY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="sDB-hg-phB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eF1-Dl-7EB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1171.5" y="111.5"/>
+        </scene>
+        <!--PlayVC-->
+        <scene sceneID="FGL-Iw-af7">
+            <objects>
+                <viewController id="UG4-Az-b99" customClass="PlayVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eSi-Ka-puB"/>
+                        <viewControllerLayoutGuide type="bottom" id="8rv-iu-uZY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7nI-GI-iZF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trD-zX-Sog">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kH-zZ-3Li">
+                                        <rect key="frame" x="165" y="46" width="44" height="44"/>
+                                        <state key="normal" backgroundImage="play_nor.png"/>
+                                        <state key="selected" backgroundImage="pause_nor.png"/>
+                                        <state key="highlighted" backgroundImage="play_press.png"/>
+                                        <connections>
+                                            <action selector="playOrPauseAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="ZnK-lC-Ds8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GW6-rI-KOO">
+                                        <rect key="frame" x="294" y="46" width="44" height="44"/>
+                                        <state key="normal" backgroundImage="next_nor.png"/>
+                                        <state key="highlighted" backgroundImage="next_press.png"/>
+                                        <connections>
+                                            <action selector="nextSongAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="MhO-fu-Tm1"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XFt-WG-v1S">
+                                        <rect key="frame" x="128" y="8" width="118" height="31"/>
+                                        <connections>
+                                            <action selector="volumeAction:" destination="UG4-Az-b99" eventType="valueChanged" id="vrM-Bc-eaD"/>
+                                        </connections>
+                                    </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-1B-5za">
+                                        <rect key="frame" x="252" y="8" width="30" height="30"/>
+                                        <state key="normal" backgroundImage="volume_max.png"/>
+                                        <connections>
+                                            <action selector="maxVolumeAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="6O3-p7-jFF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGn-96-Irm">
+                                        <rect key="frame" x="92" y="8" width="30" height="30"/>
+                                        <state key="normal" backgroundImage="volume_min.png"/>
+                                        <connections>
+                                            <action selector="minVolumeAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="wqr-hL-Ob7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-JF-7KI">
+                                        <rect key="frame" x="39" y="46" width="44" height="44"/>
+                                        <state key="normal" backgroundImage="prev_nor.png"/>
+                                        <state key="highlighted" backgroundImage="prev_press.png"/>
+                                        <connections>
+                                            <action selector="prevSongAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="HMD-PO-ZUc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8vm-kO-dAB">
+                                <rect key="frame" x="-2" y="64" width="379" height="31"/>
+                            </slider>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ulk-kp-O3G">
+                                <rect key="frame" x="0.0" y="102" width="375" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UG4-Az-b99" id="0GG-pG-vww"/>
+                                    <outlet property="delegate" destination="UG4-Az-b99" id="JpG-qx-6ue"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="progressSlider" destination="8vm-kO-dAB" id="oXn-fM-lBr"/>
+                        <outlet property="tableView" destination="Ulk-kp-O3G" id="XaM-0Q-pME"/>
+                        <outlet property="volumeSlider" destination="XFt-WG-v1S" id="Hyp-zA-Jjt"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZg-c6-rfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="245"/>
+            <point key="canvasLocation" x="1623.5" y="111.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QHG-sn-34e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zGl-Tz-6zH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W1W-Gq-4Ho">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EGM-Gt-or5" kind="relationship" relationship="rootViewController" id="66Z-sa-Wgd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNJ-2J-3i4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="112"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="next_nor.png" width="58" height="58"/>
+        <image name="next_press.png" width="58" height="58"/>
+        <image name="pause_nor.png" width="78" height="78"/>
+        <image name="play_nor.png" width="78" height="78"/>
+        <image name="play_press.png" width="78" height="78"/>
+        <image name="prev_nor.png" width="58" height="58"/>
+        <image name="prev_press.png" width="58" height="58"/>
+        <image name="volume_max.png" width="90" height="90"/>
+        <image name="volume_min.png" width="90" height="90"/>
+    </resources>
 </document>
