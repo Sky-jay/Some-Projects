@@ -15,7 +15,6 @@
 		CCA887AE1C1C163D0093B546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA887AC1C1C163D0093B546 /* LaunchScreen.storyboard */; };
 		CCA887B91C1C163D0093B546 /* ASimpleAudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA887B81C1C163D0093B546 /* ASimpleAudioPlayerTests.m */; };
 		CCA887C41C1C163D0093B546 /* ASimpleAudioPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA887C31C1C163D0093B546 /* ASimpleAudioPlayerUITests.m */; };
-		CCA887D21C1C167F0093B546 /* 红颜劫.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCA887D11C1C167F0093B546 /* 红颜劫.lrc */; };
 		CCDBC1161C1D4429000E9AEA /* next_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC10A1C1D4429000E9AEA /* next_nor.png */; };
 		CCDBC1171C1D4429000E9AEA /* next_press.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC10B1C1D4429000E9AEA /* next_press.png */; };
 		CCDBC1181C1D4429000E9AEA /* pause_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC10C1C1D4429000E9AEA /* pause_nor.png */; };
@@ -33,6 +32,12 @@
 		CCDBC12B1C1D493D000E9AEA /* 演员.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC12A1C1D493D000E9AEA /* 演员.mp3 */; };
 		CCDBC12D1C1D496E000E9AEA /* 演员.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC12C1C1D496E000E9AEA /* 演员.lrc */; };
 		CCDBC1311C1D5328000E9AEA /* LrcDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDBC1301C1D5328000E9AEA /* LrcDecode.m */; };
+		CCDBC1371C1D9AD4000E9AEA /* 当你老了.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1321C1D9AD4000E9AEA /* 当你老了.lrc */; };
+		CCDBC1381C1D9AD4000E9AEA /* 当你老了.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1331C1D9AD4000E9AEA /* 当你老了.mp3 */; };
+		CCDBC1391C1D9AD4000E9AEA /* 红颜劫.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1341C1D9AD4000E9AEA /* 红颜劫.mp3 */; };
+		CCDBC13A1C1D9AD4000E9AEA /* 时间都去哪儿了.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1351C1D9AD4000E9AEA /* 时间都去哪儿了.lrc */; };
+		CCDBC13B1C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */; };
+		CCDBC13D1C1D9AF5000E9AEA /* 红颜劫.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +74,6 @@
 		CCA887BF1C1C163D0093B546 /* ASimpleAudioPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASimpleAudioPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA887C31C1C163D0093B546 /* ASimpleAudioPlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASimpleAudioPlayerUITests.m; sourceTree = "<group>"; };
 		CCA887C51C1C163D0093B546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCA887D11C1C167F0093B546 /* 红颜劫.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "红颜劫.lrc"; sourceTree = "<group>"; };
 		CCDBC10A1C1D4429000E9AEA /* next_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_nor.png; sourceTree = "<group>"; };
 		CCDBC10B1C1D4429000E9AEA /* next_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_press.png; sourceTree = "<group>"; };
 		CCDBC10C1C1D4429000E9AEA /* pause_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_nor.png; sourceTree = "<group>"; };
@@ -90,6 +94,12 @@
 		CCDBC12C1C1D496E000E9AEA /* 演员.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "演员.lrc"; sourceTree = "<group>"; };
 		CCDBC12F1C1D5328000E9AEA /* LrcDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LrcDecode.h; sourceTree = "<group>"; };
 		CCDBC1301C1D5328000E9AEA /* LrcDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LrcDecode.m; sourceTree = "<group>"; };
+		CCDBC1321C1D9AD4000E9AEA /* 当你老了.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "当你老了.lrc"; sourceTree = "<group>"; };
+		CCDBC1331C1D9AD4000E9AEA /* 当你老了.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "当你老了.mp3"; sourceTree = "<group>"; };
+		CCDBC1341C1D9AD4000E9AEA /* 红颜劫.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "红颜劫.mp3"; sourceTree = "<group>"; };
+		CCDBC1351C1D9AD4000E9AEA /* 时间都去哪儿了.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "时间都去哪儿了.lrc"; sourceTree = "<group>"; };
+		CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "时间都去哪儿了.mp3"; sourceTree = "<group>"; };
+		CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "红颜劫.lrc"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +163,6 @@
 			children = (
 				CCDBC1291C1D4911000E9AEA /* SongsAndLrcs */,
 				CCDBC1091C1D4429000E9AEA /* MyPlayerImage */,
-				CCA887D11C1C167F0093B546 /* 红颜劫.lrc */,
 				CCA8879F1C1C163D0093B546 /* main.m */,
 				CCA887A11C1C163D0093B546 /* AppDelegate.h */,
 				CCA887A21C1C163D0093B546 /* AppDelegate.m */,
@@ -217,6 +226,12 @@
 		CCDBC1291C1D4911000E9AEA /* SongsAndLrcs */ = {
 			isa = PBXGroup;
 			children = (
+				CCDBC1321C1D9AD4000E9AEA /* 当你老了.lrc */,
+				CCDBC1331C1D9AD4000E9AEA /* 当你老了.mp3 */,
+				CCDBC1341C1D9AD4000E9AEA /* 红颜劫.mp3 */,
+				CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */,
+				CCDBC1351C1D9AD4000E9AEA /* 时间都去哪儿了.lrc */,
+				CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */,
 				CCDBC12A1C1D493D000E9AEA /* 演员.mp3 */,
 				CCDBC12C1C1D496E000E9AEA /* 演员.lrc */,
 			);
@@ -335,10 +350,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCDBC13B1C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 in Resources */,
+				CCDBC1381C1D9AD4000E9AEA /* 当你老了.mp3 in Resources */,
 				CCDBC1161C1D4429000E9AEA /* next_nor.png in Resources */,
 				CCDBC11A1C1D4429000E9AEA /* play_nor.png in Resources */,
 				CCDBC11E1C1D4429000E9AEA /* progress_all.png in Resources */,
+				CCDBC1371C1D9AD4000E9AEA /* 当你老了.lrc in Resources */,
 				CCDBC11D1C1D4429000E9AEA /* prev_press.png in Resources */,
+				CCDBC1391C1D9AD4000E9AEA /* 红颜劫.mp3 in Resources */,
 				CCA887AE1C1C163D0093B546 /* LaunchScreen.storyboard in Resources */,
 				CCDBC1171C1D4429000E9AEA /* next_press.png in Resources */,
 				CCDBC1201C1D4429000E9AEA /* volume_max.png in Resources */,
@@ -346,12 +365,13 @@
 				CCDBC11C1C1D4429000E9AEA /* prev_nor.png in Resources */,
 				CCDBC11F1C1D4429000E9AEA /* progress_did.png in Resources */,
 				CCDBC1191C1D4429000E9AEA /* pause_press.png in Resources */,
+				CCDBC13D1C1D9AF5000E9AEA /* 红颜劫.lrc in Resources */,
 				CCA887A91C1C163D0093B546 /* Main.storyboard in Resources */,
 				CCDBC12B1C1D493D000E9AEA /* 演员.mp3 in Resources */,
 				CCDBC1211C1D4429000E9AEA /* volume_min.png in Resources */,
+				CCDBC13A1C1D9AD4000E9AEA /* 时间都去哪儿了.lrc in Resources */,
 				CCDBC1181C1D4429000E9AEA /* pause_nor.png in Resources */,
 				CCDBC12D1C1D496E000E9AEA /* 演员.lrc in Resources */,
-				CCA887D21C1C167F0093B546 /* 红颜劫.lrc in Resources */,
 				CCDBC11B1C1D4429000E9AEA /* play_press.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

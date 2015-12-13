@@ -10,13 +10,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LrcDecode.h"
 
-@interface PlayVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface PlayVC ()<UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 
 @property (nonatomic, strong) NSDictionary *lrcSentencesDict;
 @property (nonatomic, strong) NSArray *allTimesArray;
+@property (nonatomic, strong) NSArray *songList;
 
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) NSTimer *timer;
@@ -25,10 +26,13 @@
 
 @implementation PlayVC
 static NSString *lrcTableViewCellID = @"lrcCellID";
+static int songIndex;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _SongTitle = @"演员";
+    songIndex = 0;
+    _songList = @[@"演员", @"时间都去哪儿了", @"红颜劫", @"当你老了"];
+    _SongTitle = _songList[songIndex];
     self.navigationItem.title = _SongTitle;
     _volumeSlider.maximumValue = 1.0;
     _volumeSlider.value = self.player.volume;
@@ -43,7 +47,7 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 - (AVAudioPlayer *)player {
     if (_player == nil) {
         _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
-//        [_player prepareToPlay];
+        [_player prepareToPlay];
     }
     return _player;
 }
@@ -70,9 +74,33 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 }
 
 - (IBAction)nextSongAction:(UIButton *)sender {
+    songIndex = songIndex < 3 ? songIndex + 1 : 0;
+    _SongTitle = _songList[songIndex];
+    _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
+    if (self.player.isPlaying) {
+        [self.player pause];
+        sender.selected = NO;
+        self.timer.fireDate = [NSDate distantFuture];
+    }else{
+        [self.player play];
+        sender.selected = YES;
+        self.timer.fireDate = [NSDate distantPast];
+    }
 }
 
 - (IBAction)prevSongAction:(UIButton *)sender {
+    songIndex = songIndex > 0 ? songIndex - 1 : 3;
+    _SongTitle = _songList[songIndex];
+    _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
+    if (self.player.isPlaying) {
+        [self.player pause];
+        sender.selected = NO;
+        self.timer.fireDate = [NSDate distantFuture];
+    }else{
+        [self.player play];
+        sender.selected = YES;
+        self.timer.fireDate = [NSDate distantPast];
+    }
 }
 
 - (IBAction)maxVolumeAction:(UIButton *)sender {
@@ -93,6 +121,34 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 - (void)updateSlider
 {
     _progressSlider.value = self.player.currentTime;
+    NSInteger temp = self.player.currentTime;
+    
+    NSString *row = [self countCellIndexPathWithCurrentTime:(int)temp];
+    NSLog(@"%@",row);
+    self.navigationItem.title = row;
+    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:10 inSection:0];
+//    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+//    [_tableView cellForRowAtIndexPath:indexPath].textLabel.textColor = [UIColor greenColor];
+}
+
+- (NSString *)countCellIndexPathWithCurrentTime:(int)currentTime
+{
+    int temp = currentTime;
+    float value = 0.00f;
+    
+    for (int i = 0; i < _allTimesArray.count; i++) {
+        if (i < (_allTimesArray.count - 1)) {
+            if (fabs(temp - [_allTimesArray[i] floatValue]) < fabs(temp - [_allTimesArray[i + 1] floatValue])) {
+                value = [_allTimesArray[i] floatValue];
+            }else{
+                value = [_allTimesArray[i + 1] floatValue];
+            }
+        }
+    }
+    NSString *str = [_lrcSentencesDict objectForKey:@(value)];
+    
+    return str;
 }
 
 - (IBAction)progressSlider:(UISlider *)sender {
@@ -116,14 +172,14 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    songIndex = songIndex < 3 ? songIndex + 1 : 0;
+    _SongTitle = _songList[songIndex];
+    _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
+    [self.player play];
 }
-*/
+
 
 @end

@@ -22,7 +22,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="UG4-Az-b99" kind="show" id="YQc-bl-qhF"/>
+                                    <segue destination="UG4-Az-b99" kind="show" id="FDk-8y-3ZR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -106,7 +106,7 @@
                                     <action selector="progressSlider:" destination="UG4-Az-b99" eventType="valueChanged" id="Zx0-CN-u6S"/>
                                 </connections>
                             </slider>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ulk-kp-O3G">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ulk-kp-O3G">
                                 <rect key="frame" x="0.0" y="102" width="375" height="465"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
