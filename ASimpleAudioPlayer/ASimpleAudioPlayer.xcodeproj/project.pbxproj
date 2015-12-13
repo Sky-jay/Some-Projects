@@ -32,6 +32,7 @@
 		CCDBC1281C1D460E000E9AEA /* SongListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDBC1271C1D460E000E9AEA /* SongListVC.m */; };
 		CCDBC12B1C1D493D000E9AEA /* 演员.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC12A1C1D493D000E9AEA /* 演员.mp3 */; };
 		CCDBC12D1C1D496E000E9AEA /* 演员.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC12C1C1D496E000E9AEA /* 演员.lrc */; };
+		CCDBC1311C1D5328000E9AEA /* LrcDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDBC1301C1D5328000E9AEA /* LrcDecode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		CCDBC1271C1D460E000E9AEA /* SongListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongListVC.m; sourceTree = "<group>"; };
 		CCDBC12A1C1D493D000E9AEA /* 演员.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "演员.mp3"; sourceTree = "<group>"; };
 		CCDBC12C1C1D496E000E9AEA /* 演员.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "演员.lrc"; sourceTree = "<group>"; };
+		CCDBC12F1C1D5328000E9AEA /* LrcDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LrcDecode.h; sourceTree = "<group>"; };
+		CCDBC1301C1D5328000E9AEA /* LrcDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LrcDecode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,7 @@
 			children = (
 				CCA887A71C1C163D0093B546 /* Main.storyboard */,
 				CCDBC1221C1D4583000E9AEA /* Controllers */,
+				CCDBC12E1C1D5217000E9AEA /* Others */,
 				CCA8879E1C1C163D0093B546 /* Supporting Files */,
 			);
 			path = ASimpleAudioPlayer;
@@ -200,7 +204,6 @@
 		CCDBC1221C1D4583000E9AEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CCDBC12E1C1D5217000E9AEA /* Others */,
 				CCA887A41C1C163D0093B546 /* ViewController.h */,
 				CCA887A51C1C163D0093B546 /* ViewController.m */,
 				CCDBC1261C1D460E000E9AEA /* SongListVC.h */,
@@ -223,6 +226,8 @@
 		CCDBC12E1C1D5217000E9AEA /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				CCDBC12F1C1D5328000E9AEA /* LrcDecode.h */,
+				CCDBC1301C1D5328000E9AEA /* LrcDecode.m */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				CCA887A61C1C163D0093B546 /* ViewController.m in Sources */,
 				CCDBC1281C1D460E000E9AEA /* SongListVC.m in Sources */,
 				CCA887A31C1C163D0093B546 /* AppDelegate.m in Sources */,
+				CCDBC1311C1D5328000E9AEA /* LrcDecode.m in Sources */,
 				CCDBC1251C1D45D8000E9AEA /* PlayVC.m in Sources */,
 				CCA887A01C1C163D0093B546 /* main.m in Sources */,
 			);

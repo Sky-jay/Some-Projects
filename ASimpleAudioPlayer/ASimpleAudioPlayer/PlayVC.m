@@ -8,13 +8,19 @@
 
 #import "PlayVC.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LrcDecode.h"
 
 @interface PlayVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 
+@property (nonatomic, strong) NSDictionary *lrcSentencesDict;
+@property (nonatomic, strong) NSArray *allTimesArray;
+
 @property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation PlayVC
@@ -23,7 +29,14 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _SongTitle = @"演员";
+    self.navigationItem.title = _SongTitle;
+    _volumeSlider.maximumValue = 1.0;
     _volumeSlider.value = self.player.volume;
+    _progressSlider.maximumValue = self.player.duration;
+    _lrcSentencesDict = [NSDictionary dictionary];
+    _lrcSentencesDict = [[LrcDecode sharderLrcDecoder] decodeLyricsWithResource:_SongTitle AndType:@"lrc"];
+    _allTimesArray = [NSArray array];
+    _allTimesArray = [[LrcDecode sharderLrcDecoder] arrayWithResource:_SongTitle AndType:@"lrc"];
 }
 
 #pragma mark - Setter & Getter
@@ -35,6 +48,12 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     return _player;
 }
 
+- (NSTimer *)timer {
+    if (_timer == nil) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
 
 #pragma mark - Button Actions
 
@@ -42,9 +61,11 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     if (self.player.isPlaying) {
         [self.player pause];
         sender.selected = NO;
+        self.timer.fireDate = [NSDate distantFuture];
     }else{
         [self.player play];
         sender.selected = YES;
+        self.timer.fireDate = [NSDate distantPast];
     }
 }
 
@@ -69,10 +90,19 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     self.player.volume = sender.value;
 }
 
+- (void)updateSlider
+{
+    _progressSlider.value = self.player.currentTime;
+}
+
+- (IBAction)progressSlider:(UISlider *)sender {
+    self.player.currentTime = sender.value;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return _allTimesArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,7 +111,8 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:lrcTableViewCellID];
     }
-    cell.textLabel.text = @"";
+    cell.textLabel.text = _lrcSentencesDict[_allTimesArray[indexPath.row]];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;
 }
 
