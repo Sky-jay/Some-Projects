@@ -108,7 +108,7 @@
                             </slider>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ulk-kp-O3G">
                                 <rect key="frame" x="0.0" y="102" width="375" height="465"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="UG4-Az-b99" id="0GG-pG-vww"/>
                                     <outlet property="delegate" destination="UG4-Az-b99" id="JpG-qx-6ue"/>

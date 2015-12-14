@@ -29,6 +29,9 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 static int songIndex;
 
 - (void)viewDidLoad {
+//    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:_tableView.frame];
+//    bgImageView.image = [UIImage imageNamed:@"千寻3.JPG"];
+//    _tableView.backgroundView = bgImageView;
     [super viewDidLoad];
     songIndex = 0;
     _songList = @[@"演员", @"时间都去哪儿了", @"红颜劫", @"当你老了"];
@@ -121,34 +124,38 @@ static int songIndex;
 - (void)updateSlider
 {
     _progressSlider.value = self.player.currentTime;
-    NSInteger temp = self.player.currentTime;
     
-    NSString *row = [self countCellIndexPathWithCurrentTime:(int)temp];
-    NSLog(@"%@",row);
-    self.navigationItem.title = row;
+    NSTimeInterval a = self.player.currentTime;
+    NSLog(@"%f",a);
+    NSUInteger temp = a;
+    NSLog(@"%lu",(unsigned long)temp);
+    NSInteger row = [self countCellIndexPathWithCurrentTime:(int)temp];
+    NSLog(@"%ld",(long)row);
     
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:10 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
 //    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 //    [_tableView cellForRowAtIndexPath:indexPath].textLabel.textColor = [UIColor greenColor];
 }
 
-- (NSString *)countCellIndexPathWithCurrentTime:(int)currentTime
+- (NSInteger)countCellIndexPathWithCurrentTime:(int)currentTime
 {
-    int temp = currentTime;
-    float value = 0.00f;
+    NSInteger temp = currentTime;
+    NSInteger value = 0;
+    NSInteger first = labs((temp - [_allTimesArray[0] integerValue]));
     
     for (int i = 0; i < _allTimesArray.count; i++) {
         if (i < (_allTimesArray.count - 1)) {
-            if (fabs(temp - [_allTimesArray[i] floatValue]) < fabs(temp - [_allTimesArray[i + 1] floatValue])) {
-                value = [_allTimesArray[i] floatValue];
+            NSInteger value2 = labs((temp - [_allTimesArray[i + 1] integerValue]));
+            if (first <= value2) {
+                
             }else{
-                value = [_allTimesArray[i + 1] floatValue];
+                first = value2;
+                value = i + 1;
             }
         }
     }
-    NSString *str = [_lrcSentencesDict objectForKey:@(value)];
-    
-    return str;
+    return value;
 }
 
 - (IBAction)progressSlider:(UISlider *)sender {

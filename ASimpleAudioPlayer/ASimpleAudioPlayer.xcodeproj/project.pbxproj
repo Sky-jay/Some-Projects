@@ -38,6 +38,7 @@
 		CCDBC13A1C1D9AD4000E9AEA /* 时间都去哪儿了.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1351C1D9AD4000E9AEA /* 时间都去哪儿了.lrc */; };
 		CCDBC13B1C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */; };
 		CCDBC13D1C1D9AF5000E9AEA /* 红颜劫.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */; };
+		CCF8BE841C1E680200064EC6 /* 千寻3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE831C1E680200064EC6 /* 千寻3.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		CCDBC1351C1D9AD4000E9AEA /* 时间都去哪儿了.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "时间都去哪儿了.lrc"; sourceTree = "<group>"; };
 		CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "时间都去哪儿了.mp3"; sourceTree = "<group>"; };
 		CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "红颜劫.lrc"; sourceTree = "<group>"; };
+		CCF8BE831C1E680200064EC6 /* 千寻3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "千寻3.JPG"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		CCDBC1091C1D4429000E9AEA /* MyPlayerImage */ = {
 			isa = PBXGroup;
 			children = (
+				CCF8BE831C1E680200064EC6 /* 千寻3.JPG */,
 				CCDBC10A1C1D4429000E9AEA /* next_nor.png */,
 				CCDBC10B1C1D4429000E9AEA /* next_press.png */,
 				CCDBC10C1C1D4429000E9AEA /* pause_nor.png */,
@@ -365,6 +368,7 @@
 				CCDBC11C1C1D4429000E9AEA /* prev_nor.png in Resources */,
 				CCDBC11F1C1D4429000E9AEA /* progress_did.png in Resources */,
 				CCDBC1191C1D4429000E9AEA /* pause_press.png in Resources */,
+				CCF8BE841C1E680200064EC6 /* 千寻3.JPG in Resources */,
 				CCDBC13D1C1D9AF5000E9AEA /* 红颜劫.lrc in Resources */,
 				CCA887A91C1C163D0093B546 /* Main.storyboard in Resources */,
 				CCDBC12B1C1D493D000E9AEA /* 演员.mp3 in Resources */,
