@@ -22,7 +22,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="UG4-Az-b99" kind="show" id="FDk-8y-3ZR"/>
+                                    <segue destination="UG4-Az-b99" kind="show" id="Y8z-xZ-Bhi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -119,6 +119,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="playOrPauseBtn" destination="7kH-zZ-3Li" id="rhW-1u-gOe"/>
                         <outlet property="progressSlider" destination="8vm-kO-dAB" id="oXn-fM-lBr"/>
                         <outlet property="tableView" destination="Ulk-kp-O3G" id="XaM-0Q-pME"/>
                         <outlet property="volumeSlider" destination="XFt-WG-v1S" id="Hyp-zA-Jjt"/>

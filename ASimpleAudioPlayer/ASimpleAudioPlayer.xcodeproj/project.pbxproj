@@ -39,6 +39,11 @@
 		CCDBC13B1C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */; };
 		CCDBC13D1C1D9AF5000E9AEA /* 红颜劫.lrc in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */; };
 		CCF8BE841C1E680200064EC6 /* 千寻3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE831C1E680200064EC6 /* 千寻3.JPG */; };
+		CCF8BE881C1E6D4500064EC6 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE871C1E6D4500064EC6 /* bg.jpg */; };
+		CCF8BE8E1C1EE4C100064EC6 /* SongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF8BE8D1C1EE4C100064EC6 /* SongModel.m */; };
+		CCF8BE901C1EE54600064EC6 /* SongsInfos.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE8F1C1EE54600064EC6 /* SongsInfos.plist */; };
+		CCF8BE931C1EE70800064EC6 /* SongListHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF8BE921C1EE70800064EC6 /* SongListHandle.m */; };
+		CCF8BE961C1EEC5500064EC6 /* SongPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF8BE951C1EEC5500064EC6 /* SongPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +107,14 @@
 		CCDBC1361C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "时间都去哪儿了.mp3"; sourceTree = "<group>"; };
 		CCDBC13C1C1D9AF5000E9AEA /* 红颜劫.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "红颜劫.lrc"; sourceTree = "<group>"; };
 		CCF8BE831C1E680200064EC6 /* 千寻3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "千寻3.JPG"; sourceTree = "<group>"; };
+		CCF8BE871C1E6D4500064EC6 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		CCF8BE8C1C1EE4C100064EC6 /* SongModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongModel.h; sourceTree = "<group>"; };
+		CCF8BE8D1C1EE4C100064EC6 /* SongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongModel.m; sourceTree = "<group>"; };
+		CCF8BE8F1C1EE54600064EC6 /* SongsInfos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SongsInfos.plist; sourceTree = "<group>"; };
+		CCF8BE911C1EE70800064EC6 /* SongListHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongListHandle.h; sourceTree = "<group>"; };
+		CCF8BE921C1EE70800064EC6 /* SongListHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongListHandle.m; sourceTree = "<group>"; };
+		CCF8BE941C1EEC5500064EC6 /* SongPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongPlayer.h; sourceTree = "<group>"; };
+		CCF8BE951C1EEC5500064EC6 /* SongPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +165,11 @@
 		CCA8879D1C1C163D0093B546 /* ASimpleAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				CCA887A71C1C163D0093B546 /* Main.storyboard */,
+				CCF8BE8B1C1EE3C000064EC6 /* Models */,
+				CCF8BE8A1C1EE3B500064EC6 /* Views */,
 				CCDBC1221C1D4583000E9AEA /* Controllers */,
-				CCDBC12E1C1D5217000E9AEA /* Others */,
+				CCDBC12E1C1D5217000E9AEA /* Tools */,
+				CCF8BE891C1EE31B00064EC6 /* Others */,
 				CCA8879E1C1C163D0093B546 /* Supporting Files */,
 			);
 			path = ASimpleAudioPlayer;
@@ -196,6 +211,7 @@
 		CCDBC1091C1D4429000E9AEA /* MyPlayerImage */ = {
 			isa = PBXGroup;
 			children = (
+				CCF8BE871C1E6D4500064EC6 /* bg.jpg */,
 				CCF8BE831C1E680200064EC6 /* 千寻3.JPG */,
 				CCDBC10A1C1D4429000E9AEA /* next_nor.png */,
 				CCDBC10B1C1D4429000E9AEA /* next_press.png */,
@@ -229,6 +245,7 @@
 		CCDBC1291C1D4911000E9AEA /* SongsAndLrcs */ = {
 			isa = PBXGroup;
 			children = (
+				CCF8BE8F1C1EE54600064EC6 /* SongsInfos.plist */,
 				CCDBC1321C1D9AD4000E9AEA /* 当你老了.lrc */,
 				CCDBC1331C1D9AD4000E9AEA /* 当你老了.mp3 */,
 				CCDBC1341C1D9AD4000E9AEA /* 红颜劫.mp3 */,
@@ -241,13 +258,41 @@
 			name = SongsAndLrcs;
 			sourceTree = "<group>";
 		};
-		CCDBC12E1C1D5217000E9AEA /* Others */ = {
+		CCDBC12E1C1D5217000E9AEA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 				CCDBC12F1C1D5328000E9AEA /* LrcDecode.h */,
 				CCDBC1301C1D5328000E9AEA /* LrcDecode.m */,
+				CCF8BE911C1EE70800064EC6 /* SongListHandle.h */,
+				CCF8BE921C1EE70800064EC6 /* SongListHandle.m */,
+				CCF8BE941C1EEC5500064EC6 /* SongPlayer.h */,
+				CCF8BE951C1EEC5500064EC6 /* SongPlayer.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		CCF8BE891C1EE31B00064EC6 /* Others */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		CCF8BE8A1C1EE3B500064EC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCA887A71C1C163D0093B546 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CCF8BE8B1C1EE3C000064EC6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CCF8BE8C1C1EE4C100064EC6 /* SongModel.h */,
+				CCF8BE8D1C1EE4C100064EC6 /* SongModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +418,8 @@
 				CCA887A91C1C163D0093B546 /* Main.storyboard in Resources */,
 				CCDBC12B1C1D493D000E9AEA /* 演员.mp3 in Resources */,
 				CCDBC1211C1D4429000E9AEA /* volume_min.png in Resources */,
+				CCF8BE881C1E6D4500064EC6 /* bg.jpg in Resources */,
+				CCF8BE901C1EE54600064EC6 /* SongsInfos.plist in Resources */,
 				CCDBC13A1C1D9AD4000E9AEA /* 时间都去哪儿了.lrc in Resources */,
 				CCDBC1181C1D4429000E9AEA /* pause_nor.png in Resources */,
 				CCDBC12D1C1D496E000E9AEA /* 演员.lrc in Resources */,
@@ -403,10 +450,13 @@
 			files = (
 				CCA887A61C1C163D0093B546 /* ViewController.m in Sources */,
 				CCDBC1281C1D460E000E9AEA /* SongListVC.m in Sources */,
+				CCF8BE931C1EE70800064EC6 /* SongListHandle.m in Sources */,
 				CCA887A31C1C163D0093B546 /* AppDelegate.m in Sources */,
 				CCDBC1311C1D5328000E9AEA /* LrcDecode.m in Sources */,
+				CCF8BE961C1EEC5500064EC6 /* SongPlayer.m in Sources */,
 				CCDBC1251C1D45D8000E9AEA /* PlayVC.m in Sources */,
 				CCA887A01C1C163D0093B546 /* main.m in Sources */,
+				CCF8BE8E1C1EE4C100064EC6 /* SongModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayVC : UIViewController
-@property (nonatomic, strong) NSString *SongTitle;
+
 @end

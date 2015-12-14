@@ -9,7 +9,6 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) NSMutableDictionary *lrcSentencesDict;
 @end
 
 @implementation ViewController

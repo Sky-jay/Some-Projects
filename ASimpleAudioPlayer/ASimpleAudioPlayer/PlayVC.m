@@ -7,20 +7,17 @@
 //
 
 #import "PlayVC.h"
-#import <AVFoundation/AVFoundation.h>
+#import "SongPlayer.h"
 #import "LrcDecode.h"
 
-@interface PlayVC ()<UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
+@interface PlayVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
+@property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
 
 @property (nonatomic, strong) NSDictionary *lrcSentencesDict;
 @property (nonatomic, strong) NSArray *allTimesArray;
-@property (nonatomic, strong) NSArray *songList;
-
-@property (nonatomic, strong) AVAudioPlayer *player;
-@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -29,98 +26,72 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 static int songIndex;
 
 - (void)viewDidLoad {
-//    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:_tableView.frame];
-//    bgImageView.image = [UIImage imageNamed:@"千寻3.JPG"];
-//    _tableView.backgroundView = bgImageView;
     [super viewDidLoad];
-    songIndex = 0;
-    _songList = @[@"演员", @"时间都去哪儿了", @"红颜劫", @"当你老了"];
-    _SongTitle = _songList[songIndex];
-    self.navigationItem.title = _SongTitle;
+    [self setupSubView];
+}
+
+- (void)setupSubView
+{
+    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:_tableView.frame];
+    bgImageView.image = [UIImage imageNamed:@"bg.JPG"];
+    _tableView.backgroundView = bgImageView;
+    _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    //    self.navigationItem.title = _SongTitle;
+    
+    if ([SongPlayer sharedSongPlayer].playOrPause) {
+        _playOrPauseBtn.selected = YES;
+    }else {
+        _playOrPauseBtn.selected = NO;
+    }
+    
+
     _volumeSlider.maximumValue = 1.0;
-    _volumeSlider.value = self.player.volume;
+    _volumeSlider.value = [SongPlayer sharedSongPlayer].volume;
+#if 0
     _progressSlider.maximumValue = self.player.duration;
     _lrcSentencesDict = [NSDictionary dictionary];
     _lrcSentencesDict = [[LrcDecode sharderLrcDecoder] decodeLyricsWithResource:_SongTitle AndType:@"lrc"];
     _allTimesArray = [NSArray array];
     _allTimesArray = [[LrcDecode sharderLrcDecoder] arrayWithResource:_SongTitle AndType:@"lrc"];
-}
-
-#pragma mark - Setter & Getter
-- (AVAudioPlayer *)player {
-    if (_player == nil) {
-        _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
-        [_player prepareToPlay];
-    }
-    return _player;
-}
-
-- (NSTimer *)timer {
-    if (_timer == nil) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
-    }
-    return _timer;
+#endif
 }
 
 #pragma mark - Button Actions
 
 - (IBAction)playOrPauseAction:(UIButton *)sender {
-    if (self.player.isPlaying) {
-        [self.player pause];
+    if ([SongPlayer sharedSongPlayer].playOrPause) {
+        [SongPlayer sharedSongPlayer].playOrPause = NO;
         sender.selected = NO;
-        self.timer.fireDate = [NSDate distantFuture];
     }else{
-        [self.player play];
+        [SongPlayer sharedSongPlayer].playOrPause = YES;
         sender.selected = YES;
-        self.timer.fireDate = [NSDate distantPast];
     }
 }
 
 - (IBAction)nextSongAction:(UIButton *)sender {
-    songIndex = songIndex < 3 ? songIndex + 1 : 0;
-    _SongTitle = _songList[songIndex];
-    _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
-    if (self.player.isPlaying) {
-        [self.player pause];
-        sender.selected = NO;
-        self.timer.fireDate = [NSDate distantFuture];
-    }else{
-        [self.player play];
-        sender.selected = YES;
-        self.timer.fireDate = [NSDate distantPast];
-    }
+    [[SongPlayer sharedSongPlayer] nextSong];
 }
 
 - (IBAction)prevSongAction:(UIButton *)sender {
-    songIndex = songIndex > 0 ? songIndex - 1 : 3;
-    _SongTitle = _songList[songIndex];
-    _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
-    if (self.player.isPlaying) {
-        [self.player pause];
-        sender.selected = NO;
-        self.timer.fireDate = [NSDate distantFuture];
-    }else{
-        [self.player play];
-        sender.selected = YES;
-        self.timer.fireDate = [NSDate distantPast];
-    }
+    [[SongPlayer sharedSongPlayer] prevSong];
 }
 
 - (IBAction)maxVolumeAction:(UIButton *)sender {
-    self.player.volume = 1.0;
     _volumeSlider.value = 1.0;
+    [SongPlayer sharedSongPlayer].volume = 1.0;
 }
 
 - (IBAction)minVolumeAction:(UIButton *)sender {
-    self.player.volume = 0.0;
     _volumeSlider.value = 0.0;
+    [SongPlayer sharedSongPlayer].volume = 0.0;
 }
 
 #pragma mark - SliderAction
 - (IBAction)volumeAction:(UISlider *)sender {
-    self.player.volume = sender.value;
+    [SongPlayer sharedSongPlayer].volume = sender.value;
 }
 
+#if 0
 - (void)updateSlider
 {
     _progressSlider.value = self.player.currentTime;
@@ -158,8 +129,9 @@ static int songIndex;
     return value;
 }
 
+#endif
 - (IBAction)progressSlider:(UISlider *)sender {
-    self.player.currentTime = sender.value;
+
 }
 
 #pragma mark - UITableViewDataSource
@@ -173,20 +145,14 @@ static int songIndex;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:lrcTableViewCellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:lrcTableViewCellID];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectedTextColor = [UIColor greenColor];
     }
     cell.textLabel.text = _lrcSentencesDict[_allTimesArray[indexPath.row]];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;
 }
 
-#pragma mark - AVAudioPlayerDelegate
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    songIndex = songIndex < 3 ? songIndex + 1 : 0;
-    _SongTitle = _songList[songIndex];
-    _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle] URLForResource: _SongTitle withExtension:@"mp3" ] error:nil];
-    [self.player play];
-}
 
 
 @end

@@ -7,6 +7,11 @@
 //
 
 #import "SongListVC.h"
+#import "PlayVC.h"
+#import "SongListHandle.h"
+#import "SongModel.h"
+#import "SongPlayer.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface SongListVC ()
 
@@ -17,11 +22,7 @@ static NSString *identifier = @"CellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _SongList = @[@"演员", @"时间都去哪儿了", @"红颜劫", @"当你老了"];
-    
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
 
 #pragma mark - Table view data source
 
@@ -30,22 +31,22 @@ static NSString *identifier = @"CellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _SongList.count;
+    return [SongListHandle sharedHandle].songList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = _SongList[indexPath.row];
+    SongModel *model = [SongListHandle sharedHandle].songList[indexPath.row];
+    cell.textLabel.text = model.sName;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [SongPlayer sharedSongPlayer].currentIndex = indexPath.row;
 }
 
 /*
