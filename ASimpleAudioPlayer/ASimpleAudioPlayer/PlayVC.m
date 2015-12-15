@@ -10,7 +10,7 @@
 #import "SongPlayer.h"
 #import "LrcDecode.h"
 
-@interface PlayVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface PlayVC ()<UITableViewDelegate, UITableViewDataSource, SongPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
@@ -32,6 +32,7 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 
 - (void)setupSubView
 {
+    [SongPlayer sharedSongPlayer].delegate = self;
     UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:_tableView.frame];
     bgImageView.image = [UIImage imageNamed:@"bg.JPG"];
     _tableView.backgroundView = bgImageView;
@@ -50,6 +51,8 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     
     _volumeSlider.maximumValue = 1.0;
     _volumeSlider.value = [SongPlayer sharedSongPlayer].volume;
+    _progressSlider.maximumValue = [SongPlayer sharedSongPlayer].durition;
+    _progressSlider.value = [SongPlayer sharedSongPlayer].currentTime;
 #if 0
     _progressSlider.maximumValue = self.player.duration;
     _lrcSentencesDict = [NSDictionary dictionary];
@@ -161,7 +164,7 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 
 #endif
 - (IBAction)progressSlider:(UISlider *)sender {
-
+    [SongPlayer sharedSongPlayer].currentTime = _progressSlider.value;
 }
 
 #pragma mark - UITableViewDataSource
@@ -183,6 +186,10 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     return cell;
 }
 
-
+#pragma mark - SongPlayerDelegate
+- (void)sendCurrentTime:(NSTimeInterval)currentTime
+{
+    _progressSlider.value = currentTime;
+}
 
 @end

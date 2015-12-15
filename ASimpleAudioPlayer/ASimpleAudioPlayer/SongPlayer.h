@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SongPlayerDelegate <NSObject>
+
+- (void)sendCurrentTime:(NSTimeInterval)currentTime;
+
+@end
+
 typedef enum : NSUInteger {
     sequenceLoop,
     singleLoop,
@@ -22,7 +28,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) float volume;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, assign) PLAYTYPE playType;
-
+@property (nonatomic, weak) id<SongPlayerDelegate> delegate;
 
 + (instancetype)sharedSongPlayer;
 

@@ -11,6 +11,7 @@
 #import "SongListHandle.h"
 #import "SongModel.h"
 
+
 @interface SongPlayer ()<AVAudioPlayerDelegate>
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) NSTimer *timer;
@@ -93,6 +94,15 @@
     return _player.duration;
 }
 
+- (void)setDelegate:(id<SongPlayerDelegate>)delegate {
+    if (delegate != _delegate) {
+        if (self.playOrPause) {
+            self.timer.fireDate = [NSDate distantPast];
+        }
+    }
+    _delegate = delegate;
+}
+
 #pragma mark - Method
 
 - (void)nextSong {
@@ -105,8 +115,11 @@
 
 - (void)updateCurrent
 {
-    
+    [_delegate sendCurrentTime:self.currentTime];
 }
+
+#pragma mark - DelegateMethod
+
 
 #pragma mark - AVAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
