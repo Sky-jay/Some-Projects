@@ -55,13 +55,18 @@
             return;
         }else {
             SongModel *model = [SongListHandle sharedHandle].songList[currentIndex];
+            _songName = model.sName;
             _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle]URLForResource:model.sName withExtension:model.sType] error:nil];
+            _player.delegate = self;
             _orderedTimes = [NSArray array];
             _orderedTimes = [[LrcDecode sharderLrcDecoder] arrayWithResource:model.sName AndType:@"lrc"];
             _lrcDict = [NSDictionary dictionary];
             _lrcDict = [[LrcDecode sharderLrcDecoder] decodeLyricsWithResource:model.sName AndType:@"lrc"];
             [_player prepareToPlay];
             [_player play];
+            if (_delegate) {
+                [_delegate updateLrcAndTitle];
+            }
         }
     }
     _currentIndex = currentIndex;

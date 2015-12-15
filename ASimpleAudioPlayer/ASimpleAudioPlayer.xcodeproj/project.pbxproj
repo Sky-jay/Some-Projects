@@ -15,6 +15,8 @@
 		CCA887AE1C1C163D0093B546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA887AC1C1C163D0093B546 /* LaunchScreen.storyboard */; };
 		CCA887B91C1C163D0093B546 /* ASimpleAudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA887B81C1C163D0093B546 /* ASimpleAudioPlayerTests.m */; };
 		CCA887C41C1C163D0093B546 /* ASimpleAudioPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA887C31C1C163D0093B546 /* ASimpleAudioPlayerUITests.m */; };
+		CCD01D701C204BC000C227F1 /* point1.png in Resources */ = {isa = PBXBuildFile; fileRef = CCD01D6E1C204BC000C227F1 /* point1.png */; };
+		CCD01D711C204BC000C227F1 /* point2.png in Resources */ = {isa = PBXBuildFile; fileRef = CCD01D6F1C204BC000C227F1 /* point2.png */; };
 		CCDBC1161C1D4429000E9AEA /* next_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC10A1C1D4429000E9AEA /* next_nor.png */; };
 		CCDBC1171C1D4429000E9AEA /* next_press.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC10B1C1D4429000E9AEA /* next_press.png */; };
 		CCDBC1181C1D4429000E9AEA /* pause_nor.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDBC10C1C1D4429000E9AEA /* pause_nor.png */; };
@@ -83,6 +85,8 @@
 		CCA887BF1C1C163D0093B546 /* ASimpleAudioPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASimpleAudioPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA887C31C1C163D0093B546 /* ASimpleAudioPlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASimpleAudioPlayerUITests.m; sourceTree = "<group>"; };
 		CCA887C51C1C163D0093B546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCD01D6E1C204BC000C227F1 /* point1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point1.png; sourceTree = "<group>"; };
+		CCD01D6F1C204BC000C227F1 /* point2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point2.png; sourceTree = "<group>"; };
 		CCDBC10A1C1D4429000E9AEA /* next_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_nor.png; sourceTree = "<group>"; };
 		CCDBC10B1C1D4429000E9AEA /* next_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_press.png; sourceTree = "<group>"; };
 		CCDBC10C1C1D4429000E9AEA /* pause_nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_nor.png; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 				CCF8BE971C1F079900064EC6 /* repeat_one_normal.png */,
 				CCF8BE981C1F079900064EC6 /* sequent_normal.png */,
 				CCF8BE991C1F079900064EC6 /* shuffle_normal.png */,
+				CCD01D6E1C204BC000C227F1 /* point1.png */,
+				CCD01D6F1C204BC000C227F1 /* point2.png */,
 			);
 			path = MyPlayerImage;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				CCDBC11A1C1D4429000E9AEA /* play_nor.png in Resources */,
 				CCDBC11E1C1D4429000E9AEA /* progress_all.png in Resources */,
 				CCDBC1371C1D9AD4000E9AEA /* 当你老了.lrc in Resources */,
+				CCD01D711C204BC000C227F1 /* point2.png in Resources */,
 				CCDBC11D1C1D4429000E9AEA /* prev_press.png in Resources */,
 				CCDBC1391C1D9AD4000E9AEA /* 红颜劫.mp3 in Resources */,
 				CCA887AE1C1C163D0093B546 /* LaunchScreen.storyboard in Resources */,
@@ -433,6 +440,7 @@
 				CCF8BE881C1E6D4500064EC6 /* bg.jpg in Resources */,
 				CCF8BE901C1EE54600064EC6 /* SongsInfos.plist in Resources */,
 				CCDBC13A1C1D9AD4000E9AEA /* 时间都去哪儿了.lrc in Resources */,
+				CCD01D701C204BC000C227F1 /* point1.png in Resources */,
 				CCDBC1181C1D4429000E9AEA /* pause_nor.png in Resources */,
 				CCDBC12D1C1D496E000E9AEA /* 演员.lrc in Resources */,
 				CCDBC11B1C1D4429000E9AEA /* play_press.png in Resources */,

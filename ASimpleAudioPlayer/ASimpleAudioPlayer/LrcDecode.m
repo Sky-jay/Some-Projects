@@ -50,7 +50,7 @@
     NSDictionary *lrcSentencesDict = [self decodeLyricsWithResource:name AndType:ext];
     NSArray *AllTimes = [lrcSentencesDict allKeys];
     NSArray *orderedArray = [AllTimes sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",orderedArray);
+//    NSLog(@"%@",orderedArray);
     return orderedArray;
 }
 

@@ -11,6 +11,7 @@
 @protocol SongPlayerDelegate <NSObject>
 
 - (void)sendCurrentTime:(NSTimeInterval)currentTime;
+- (void)updateLrcAndTitle;
 
 @end
 
@@ -24,6 +25,7 @@ typedef enum : NSUInteger {
 
 @property (readonly) NSTimeInterval durition;
 @property (nonatomic, assign) NSTimeInterval currentTime;
+@property (nonatomic, strong) NSString *songName;
 @property (nonatomic, assign) BOOL playOrPause;
 @property (nonatomic, assign) float volume;
 @property (nonatomic, assign) NSInteger currentIndex;

@@ -38,14 +38,15 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
     [SongPlayer sharedSongPlayer].playType = sequenceLoop;
     [_loopType setImage:[UIImage imageNamed:@"sequent_normal"] forState:UIControlStateNormal];
     
-    //    self.navigationItem.title = _SongTitle;
+    self.navigationItem.title = [SongPlayer sharedSongPlayer].songName;
     
     if ([SongPlayer sharedSongPlayer].playOrPause) {
         _playOrPauseBtn.selected = YES;
     }else {
         _playOrPauseBtn.selected = NO;
     }
-    
+    [_progressSlider setThumbImage:[UIImage imageNamed:@"point2"] forState:UIControlStateNormal];
+//    [_volumeSlider setThumbImage:[UIImage imageNamed:@"point1"] forState:UIControlStateNormal];
     _volumeSlider.maximumValue = 1.0;
     _volumeSlider.value = [SongPlayer sharedSongPlayer].volume;
     _progressSlider.maximumValue = [SongPlayer sharedSongPlayer].durition;
@@ -143,6 +144,12 @@ static NSString *lrcTableViewCellID = @"lrcCellID";
 }
 
 #pragma mark - SongPlayerDelegate
+- (void)updateLrcAndTitle
+{
+    [_tableView reloadData];
+    self.navigationItem.title = [SongPlayer sharedSongPlayer].songName;
+}
+
 - (void)sendCurrentTime:(NSTimeInterval)currentTime
 {
     _progressSlider.value = currentTime;
