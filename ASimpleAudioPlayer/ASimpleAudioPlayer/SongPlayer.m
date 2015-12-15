@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SongListHandle.h"
 #import "SongModel.h"
-
+#import "LrcDecode.h"
 
 @interface SongPlayer ()<AVAudioPlayerDelegate>
 @property (nonatomic, strong) AVAudioPlayer *player;
@@ -56,6 +56,10 @@
         }else {
             SongModel *model = [SongListHandle sharedHandle].songList[currentIndex];
             _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSBundle mainBundle]URLForResource:model.sName withExtension:model.sType] error:nil];
+            _orderedTimes = [NSArray array];
+            _orderedTimes = [[LrcDecode sharderLrcDecoder] arrayWithResource:model.sName AndType:@"lrc"];
+            _lrcDict = [NSDictionary dictionary];
+            _lrcDict = [[LrcDecode sharderLrcDecoder] decodeLyricsWithResource:model.sName AndType:@"lrc"];
             [_player prepareToPlay];
             [_player play];
         }
@@ -118,12 +122,10 @@
     [_delegate sendCurrentTime:self.currentTime];
 }
 
-#pragma mark - DelegateMethod
-
-
 #pragma mark - AVAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
+    NSLog(@"%d",flag);
     if (flag) {
         [self nextLoopType];
     }

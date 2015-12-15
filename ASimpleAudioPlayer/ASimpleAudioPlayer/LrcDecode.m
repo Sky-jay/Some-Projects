@@ -30,12 +30,14 @@
     
     NSMutableDictionary *lrcSentencesDict = [NSMutableDictionary dictionary];
     for (NSString *lrcSentenceStr in lrcArray) {
-//        NSLog(@"lrcSentenceStr-->%@",lrcSentenceStr);
+
         NSArray *subLrcStr = [lrcSentenceStr componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"[:]"]];
 //        NSLog(@"subLrcStr-->%@",subLrcStr);
-        if ([subLrcStr[1] hasPrefix:@"0"]) {
-            float sentenceTime = [subLrcStr[1] floatValue] * 60 + [subLrcStr[2] floatValue];
-            [lrcSentencesDict setObject:subLrcStr[3] forKey:@(sentenceTime)];
+        if (subLrcStr.count >= 4) {
+            if ([subLrcStr[1] hasPrefix:@"0"]) {
+                float sentenceTime = [subLrcStr[1] floatValue] * 60 + [subLrcStr[2] floatValue];
+                [lrcSentencesDict setObject:subLrcStr[3] forKey:@(sentenceTime)];
+            }
         }
     }
 //    NSLog(@"lrcSentencesDict-->%@",lrcSentencesDict);
@@ -48,7 +50,7 @@
     NSDictionary *lrcSentencesDict = [self decodeLyricsWithResource:name AndType:ext];
     NSArray *AllTimes = [lrcSentencesDict allKeys];
     NSArray *orderedArray = [AllTimes sortedArrayUsingSelector:@selector(compare:)];
-//    NSLog(@"%@",orderedArray);
+    NSLog(@"%@",orderedArray);
     return orderedArray;
 }
 

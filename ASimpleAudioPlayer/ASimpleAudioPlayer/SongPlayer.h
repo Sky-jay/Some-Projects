@@ -29,6 +29,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, assign) PLAYTYPE playType;
 @property (nonatomic, weak) id<SongPlayerDelegate> delegate;
+@property (nonatomic, strong) NSDictionary *lrcDict;
+@property (nonatomic, strong) NSArray *orderedTimes;
 
 + (instancetype)sharedSongPlayer;
 
