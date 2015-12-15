@@ -97,6 +97,12 @@
                                             <action selector="prevSongAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="HMD-PO-ZUc"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDV-7D-3a5">
+                                        <rect key="frame" x="316" y="0.0" width="51" height="44"/>
+                                        <connections>
+                                            <action selector="loopTypeAction:" destination="UG4-Az-b99" eventType="touchUpInside" id="A5G-7f-5Pp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -119,6 +125,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="loopType" destination="VDV-7D-3a5" id="fEd-Mw-GZy"/>
                         <outlet property="playOrPauseBtn" destination="7kH-zZ-3Li" id="rhW-1u-gOe"/>
                         <outlet property="progressSlider" destination="8vm-kO-dAB" id="oXn-fM-lBr"/>
                         <outlet property="tableView" destination="Ulk-kp-O3G" id="XaM-0Q-pME"/>

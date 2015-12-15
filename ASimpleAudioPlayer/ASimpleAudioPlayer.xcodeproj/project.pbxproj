@@ -44,6 +44,9 @@
 		CCF8BE901C1EE54600064EC6 /* SongsInfos.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE8F1C1EE54600064EC6 /* SongsInfos.plist */; };
 		CCF8BE931C1EE70800064EC6 /* SongListHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF8BE921C1EE70800064EC6 /* SongListHandle.m */; };
 		CCF8BE961C1EEC5500064EC6 /* SongPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF8BE951C1EEC5500064EC6 /* SongPlayer.m */; };
+		CCF8BE9A1C1F079900064EC6 /* repeat_one_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE971C1F079900064EC6 /* repeat_one_normal.png */; };
+		CCF8BE9B1C1F079900064EC6 /* sequent_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE981C1F079900064EC6 /* sequent_normal.png */; };
+		CCF8BE9C1C1F079900064EC6 /* shuffle_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF8BE991C1F079900064EC6 /* shuffle_normal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		CCF8BE921C1EE70800064EC6 /* SongListHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongListHandle.m; sourceTree = "<group>"; };
 		CCF8BE941C1EEC5500064EC6 /* SongPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongPlayer.h; sourceTree = "<group>"; };
 		CCF8BE951C1EEC5500064EC6 /* SongPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongPlayer.m; sourceTree = "<group>"; };
+		CCF8BE971C1F079900064EC6 /* repeat_one_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeat_one_normal.png; sourceTree = "<group>"; };
+		CCF8BE981C1F079900064EC6 /* sequent_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sequent_normal.png; sourceTree = "<group>"; };
+		CCF8BE991C1F079900064EC6 /* shuffle_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle_normal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,9 @@
 				CCDBC1131C1D4429000E9AEA /* progress_did.png */,
 				CCDBC1141C1D4429000E9AEA /* volume_max.png */,
 				CCDBC1151C1D4429000E9AEA /* volume_min.png */,
+				CCF8BE971C1F079900064EC6 /* repeat_one_normal.png */,
+				CCF8BE981C1F079900064EC6 /* sequent_normal.png */,
+				CCF8BE991C1F079900064EC6 /* shuffle_normal.png */,
 			);
 			path = MyPlayerImage;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 			files = (
 				CCDBC13B1C1D9AD4000E9AEA /* 时间都去哪儿了.mp3 in Resources */,
 				CCDBC1381C1D9AD4000E9AEA /* 当你老了.mp3 in Resources */,
+				CCF8BE9B1C1F079900064EC6 /* sequent_normal.png in Resources */,
 				CCDBC1161C1D4429000E9AEA /* next_nor.png in Resources */,
 				CCDBC11A1C1D4429000E9AEA /* play_nor.png in Resources */,
 				CCDBC11E1C1D4429000E9AEA /* progress_all.png in Resources */,
@@ -415,6 +425,8 @@
 				CCDBC1191C1D4429000E9AEA /* pause_press.png in Resources */,
 				CCF8BE841C1E680200064EC6 /* 千寻3.JPG in Resources */,
 				CCDBC13D1C1D9AF5000E9AEA /* 红颜劫.lrc in Resources */,
+				CCF8BE9A1C1F079900064EC6 /* repeat_one_normal.png in Resources */,
+				CCF8BE9C1C1F079900064EC6 /* shuffle_normal.png in Resources */,
 				CCA887A91C1C163D0093B546 /* Main.storyboard in Resources */,
 				CCDBC12B1C1D493D000E9AEA /* 演员.mp3 in Resources */,
 				CCDBC1211C1D4429000E9AEA /* volume_min.png in Resources */,

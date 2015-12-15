@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
+@property (weak, nonatomic) IBOutlet UIButton *loopType;
 
 @property (nonatomic, strong) NSDictionary *lrcSentencesDict;
 @property (nonatomic, strong) NSArray *allTimesArray;
@@ -23,7 +24,6 @@
 
 @implementation PlayVC
 static NSString *lrcTableViewCellID = @"lrcCellID";
-static int songIndex;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +36,10 @@ static int songIndex;
     bgImageView.image = [UIImage imageNamed:@"bg.JPG"];
     _tableView.backgroundView = bgImageView;
     _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    
+    [SongPlayer sharedSongPlayer].playType = sequenceLoop;
+    [_loopType setImage:[UIImage imageNamed:@"sequent_normal"] forState:UIControlStateNormal];
+    
     //    self.navigationItem.title = _SongTitle;
     
     if ([SongPlayer sharedSongPlayer].playOrPause) {
@@ -44,7 +48,6 @@ static int songIndex;
         _playOrPauseBtn.selected = NO;
     }
     
-
     _volumeSlider.maximumValue = 1.0;
     _volumeSlider.value = [SongPlayer sharedSongPlayer].volume;
 #if 0
@@ -85,6 +88,33 @@ static int songIndex;
     _volumeSlider.value = 0.0;
     [SongPlayer sharedSongPlayer].volume = 0.0;
 }
+
+- (IBAction)loopTypeAction:(UIButton *)sender {
+    switch ([SongPlayer sharedSongPlayer].playType) {
+        case sequenceLoop:
+        {
+            [sender setImage:[UIImage imageNamed:@"repeat_one_normal"] forState:UIControlStateNormal];
+            [SongPlayer sharedSongPlayer].playType = singleLoop;
+        }
+            break;
+        case singleLoop:
+        {
+            [sender setImage:[UIImage imageNamed:@"shuffle_normal"] forState:UIControlStateNormal];
+            [SongPlayer sharedSongPlayer].playType = randomLoop;
+        }
+            break;
+        case randomLoop:
+        {
+            [sender setImage:[UIImage imageNamed:@"sequent_normal"] forState:UIControlStateNormal];
+            [SongPlayer sharedSongPlayer].playType = sequenceLoop;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - SliderAction
 - (IBAction)volumeAction:(UISlider *)sender {

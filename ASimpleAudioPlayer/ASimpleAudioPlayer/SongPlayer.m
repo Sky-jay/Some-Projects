@@ -13,11 +13,11 @@
 
 @interface SongPlayer ()<AVAudioPlayerDelegate>
 @property (nonatomic, strong) AVAudioPlayer *player;
-
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation SongPlayer
-@synthesize playOrPause = _playOrPause, volume = _volume;
+@synthesize playOrPause = _playOrPause, volume = _volume, currentTime = _currentTime;
 
 + (instancetype)sharedSongPlayer {
     static SongPlayer *songPlayer;
@@ -62,6 +62,39 @@
     _currentIndex = currentIndex;
 }
 
+- (void)setVolume:(float)volume {
+    _player.volume = volume;
+    _volume = volume;
+}
+
+- (float)volume {
+    return _player.volume;
+}
+
+- (NSTimer *)timer {
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(updateCurrent) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
+
+- (void)setCurrentTime:(NSTimeInterval)currentTime {
+    if (_currentTime != currentTime) {
+        _player.currentTime = currentTime;
+    }
+    _currentTime = currentTime;
+}
+
+- (NSTimeInterval)currentTime {
+    return _player.currentTime;
+}
+
+- (NSTimeInterval)durition {
+    return _player.duration;
+}
+
+#pragma mark - Method
+
 - (void)nextSong {
     [self nextLoopType];
 }
@@ -70,13 +103,9 @@
     self.currentIndex = self.currentIndex > 0 ? self.currentIndex - 1 : 3;
 }
 
-- (void)setVolume:(float)volume {
-    _player.volume = volume;
-    _volume = volume;
-}
-
-- (float)volume {
-    return _player.volume;
+- (void)updateCurrent
+{
+    
 }
 
 #pragma mark - AVAudioPlayerDelegate
